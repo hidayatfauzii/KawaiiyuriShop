@@ -1,0 +1,25 @@
+﻿@model ElfsLeatherStore.Models.Product
+
+
+    <div class="col-sm-4 col-lg-4 col-md-4">
+        <div class="thumbnail">
+            <img src="~/Images/@Model.PicProduct" style="width:250px;height:250px" alt="@Model.ProductName" /><br />
+            <strong>@Model.ProductName</strong><br />
+            <em>Supplier: </em>@Model.Supplier.Name <br />
+            <em>Material: </em>@Model.Material <br />
+            <em>Harga: </em><strong>Rp. @String.Format("{0:N0}", Model.Price)</strong><br />
+
+            @Html.ActionLink("Detail", "Details", "Store", new { id = Model.ProductId }, new { @class = "btn-sm btn-info" })
+
+
+            @if (User.Identity.IsAuthenticated)
+            { @Html.ActionLink("Edit", "Edit", "Product",
+                new { id = Model.ProductId }, new { @class = "btn-sm btn-info" })
+                @Html.ActionLink("Hapus", "Delete", "Product",
+                new { id = Model.ProductId }, new { @class = "btn-sm btn-warning" })
+            }
+        </div>
+     </div>
+
+
+

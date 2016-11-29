@@ -1,0 +1,29 @@
+﻿@model ElfsLeatherStore.Models.Category
+
+@{
+    ViewBag.Title = "Add Category";
+}
+
+<br />
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Form Add Category</legend>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, "Nama Kategori")
+            @Html.TextBoxFor(model => model.Name,
+            new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, "Deskripsi")
+            @Html.TextAreaFor(model => model.Description,
+            new { @class = "form-control" })
+        </div>
+        <div>
+            <input type="submit" value="Tambah"
+                   class="btn btn-default" />
+        </div>
+    </fieldset>
+}
+

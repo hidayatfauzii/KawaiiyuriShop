@@ -1,0 +1,23 @@
+﻿@model ElfsLeatherStore.Models.Category
+
+@{
+    ViewBag.Title = "Browse";
+}
+
+<h3>Kategory @Model.Name</h3>
+
+<h3>
+    <a href="http://localhost:2700/Store/SearchProduct">Search Products</a>
+</h3>
+
+<div class="row">
+    @foreach (var product in Model.Products)
+    {
+        @Html.Partial("_KatalogPartial", product)
+    }
+</div>
+
+
+
+
+

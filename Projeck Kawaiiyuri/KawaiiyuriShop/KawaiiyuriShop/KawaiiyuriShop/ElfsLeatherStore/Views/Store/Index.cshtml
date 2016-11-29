@@ -1,0 +1,20 @@
+﻿@model IEnumerable<ElfsLeatherStore.Models.Category>
+
+@{
+    ViewBag.Title = "Store";
+}
+
+<h3><a href="http://localhost:2700/Store/SearchProduct">Search Products</a></h3>
+
+<h3>List Of Categories</h3>
+
+<p>Choose from @Model.Count() categories available :</p>
+<ul>
+    @foreach (var cat in Model)
+    {
+        <li>
+            @Html.ActionLink(cat.Name, "Browse",
+            new { id = cat.CategoryId })
+        </li>
+    }
+</ul>

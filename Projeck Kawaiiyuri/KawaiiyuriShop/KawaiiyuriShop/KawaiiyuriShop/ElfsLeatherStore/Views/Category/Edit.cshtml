@@ -1,0 +1,27 @@
+﻿@model ElfsLeatherStore.Models.Category
+
+@{
+    ViewBag.Title = "Edit Category";
+}
+<br /><br />
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Edit Category</legend>
+        <div class="form-group">
+            @Html.LabelFor(m => m.CategoryId)
+            @Html.TextBoxFor(m => m.CategoryId, new { @class = "form-control", @readonly = true })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Name)
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Description)
+            @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+        </div>
+        <input type="submit" value="Edit" class="btn btn-default" />
+    </fieldset>
+}
+

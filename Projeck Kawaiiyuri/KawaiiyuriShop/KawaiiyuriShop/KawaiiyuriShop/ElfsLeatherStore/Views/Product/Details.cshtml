@@ -1,0 +1,35 @@
+﻿@model ElfsLeatherStore.Models.Product
+
+@{
+    ViewBag.Title = "Details Item";
+}
+
+<h2>Details Item</h2>
+        <div class="row">
+            <div class="col-sm-4 col-lg-4 col-md-4">
+                <div class="thumbnail">
+                    <img src="~/Images/@Model.PicProduct"style="width:300px;height:300px" alt="">
+                    <div class="caption">
+                       <em><strong>Nama   : </strong> </em>@Model.ProductName<br />
+
+                        <em><strong>Harga :</strong> </em>Rp. @String.Format("{0:N0}", Model.Price)<br />
+                      
+                        <em><strong>Warna : </strong> </em>@Model.Color <br />
+                        <em><strong>Stok : </strong></em>@Model.Stock <br />
+                       
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Description)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Description)
+                        </dd>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductId }) |
+    <a href="http://localhost:2700/store/Browse"  <em>Kembali</em> </a>
+</p>

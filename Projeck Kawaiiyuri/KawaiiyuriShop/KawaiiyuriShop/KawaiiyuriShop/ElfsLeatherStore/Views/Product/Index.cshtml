@@ -1,0 +1,86 @@
+﻿@model PagedList.IPagedList<ElfsLeatherStore.Models.Product>
+@using PagedList.Mvc
+
+@{
+    ViewBag.Title = "Product List";
+}
+
+<h2>Product List</h2>
+
+<p>
+    @Html.ActionLink("Tambah Barang", "Create")
+</p>
+
+
+<table class="table table-striped">
+    <tr>
+        <th></th>
+        <th>
+            Supplier
+        </th>
+        <th>
+            Category
+        </th>
+        <th>
+            Product
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            Color
+        </th>
+        <th>
+            Material
+        </th>
+        <th>
+            Stock
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img src="~/Images/@item.PicProduct" alt="pic url"
+                     width="80" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Supplier.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Material)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stock)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProductId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ProductId })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }),
+    PagedListRenderOptions.PageNumbersOnly)

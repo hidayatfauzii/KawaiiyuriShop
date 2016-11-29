@@ -1,0 +1,35 @@
+﻿@model IEnumerable<ElfsLeatherStore.Models.Category>
+
+@{
+    ViewBag.Title = "Category";
+    int no = 0;
+}
+
+<h2>Category List</h2>
+<br />
+@Html.ActionLink("Add Category", "Create")
+<br /><br />
+<table class="table table-striped">
+    <tr>
+        <th>No</th>
+        <th>Category Name</th>
+        <th></th>
+        <th></th>
+    </tr>
+    @foreach (var kat in Model)
+    {
+        no++;
+        <tr>
+            <td>@no</td>
+            <td>@kat.Name</td>
+            <td>
+                @Html.ActionLink("edit", "Edit",
+                new { id = kat.CategoryId })
+            </td>
+            <td>
+                @Html.ActionLink("delete", "Delete",
+                new { id = kat.CategoryId })
+            </td>
+        </tr>
+    }
+</table>

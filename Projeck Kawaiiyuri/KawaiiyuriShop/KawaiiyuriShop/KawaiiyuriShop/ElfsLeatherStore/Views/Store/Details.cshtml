@@ -1,0 +1,43 @@
+﻿@model ElfsLeatherStore.Models.Product
+
+
+
+
+
+<div class="col-sm-9 padding-right">
+    <div class="product-details">
+        <!--product-details-->
+        <div class="col-sm-5">
+            <div class="view-product">
+                <a href="~/Images/@Model.PicProduct">
+                    <img src="~/Images/@Model.PicProduct" style="width:300px;height:300px" alt="">
+                    </a>
+
+</div>
+        </div>
+        <div class="col-sm-7">
+            <div class="product-information">
+                <!--/product-information-->
+                <img src="images/product-details/new.jpg" class="newarrival" alt="" />
+                <h2><em><strong>Nama   : </strong> </em>@Model.ProductName</h2>
+                <span>
+                    <span> Harga : Rp. @String.Format("{0:N0}", Model.Price)</span>
+                </span>
+                <p><em><strong>Warna : </strong> </em>@Model.Color </p>
+                <p><em><strong>Stok : </strong></em>@Model.Stock </p>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+                <a href=""><img src="images/product-details/share.png" class="share img-responsive" alt="" /></a>
+            </div><!--/product-information-->
+        </div>
+    </div><!--/product-details-->
+    </div>
+
+
+
+    

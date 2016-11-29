@@ -1,0 +1,19 @@
+﻿@model IEnumerable<ElfsLeatherStore.Models.Supplier>
+
+@{
+    ViewBag.Title = "Supplier";
+}
+
+<h2>List Of Suppliers</h2>
+<br />
+<ul>
+    @foreach (var supplier in Model)
+    {
+        <li>
+            @Html.ActionLink(supplier.Name, "BrowseBySupplier",
+         new { id = supplier.SupplierId })
+    </li>
+    }
+</ul>
+
+
